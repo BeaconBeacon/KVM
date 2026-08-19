@@ -71,8 +71,6 @@ Bind it: https://beacon-kvm.com/b/BCN-PI-XXXXXXXXXXXX
 
 Open the link, sign in, click **Add to my account**.
 
-Full instructions: <https://doc.beacon-kvm.com/raspberry-pi.html>
-
 ## What is in the package
 
 The `beacon-kvm` binary, built for arm64, and these scripts. Read them before
@@ -100,6 +98,18 @@ sudo journalctl -u beacon-kvm-pi -n 50 --no-pager
 | Keyboard or mouse does nothing | Run `sudo hid-selftest.sh` |
 | LAN KVM jumping between 60 and 20fps | Use a cable, or 5 GHz Wi-Fi |
 | Random reboots | Power the Pi from the GPIO header, not from the target's USB port |
+
+## If the keyboard or mouse does nothing
+
+```bash
+sudo hid-selftest.sh
+```
+
+Open a text editor on the machine you are controlling, click into it, and
+follow the prompts. It types a line and moves the pointer.
+
+`state is 'not attached'` means the target machine has not seen the Pi: switch
+that machine on, and use a USB-C cable that carries data.
 
 ## Report a problem
 
