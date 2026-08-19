@@ -7,17 +7,15 @@ machine you control.
 This repository is the trial build for a **Raspberry Pi 4B** — the same
 software, on a board you already own — and where to report problems with it.
 
-> **This is a trial.** Remote access on a Pi is not something we make any
-> promises about. On your own network it is fine. The console labels these
-> devices *Raspberry Pi (trial)*.
+If you want something simpler and easier to use, buy our KVM hardware:
+[beacon-kvm.com/#pricing](https://www.beacon-kvm.com/#pricing).
 
-## The hardware version
-
-A Beacon device is the same software on a board built for it: assembled, with
-the capture card fitted and the cables in the box, and remote access we do
-stand behind.
-
-[beacon-kvm.com](https://www.beacon-kvm.com)
+- [What you need](#what-you-need)
+- [Install](#install)
+- [What is in the package](#what-is-in-the-package)
+- [If something is wrong](#if-something-is-wrong)
+- [If the keyboard or mouse does nothing](#if-the-keyboard-or-mouse-does-nothing)
+- [Report a problem](#report-a-problem)
 
 ## What you need
 
