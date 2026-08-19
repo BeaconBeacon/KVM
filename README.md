@@ -4,39 +4,49 @@
 mouse of any computer, in a browser, at BIOS level. Nothing is installed on the
 machine you control.
 
-This repository is the trial build for a **Raspberry Pi 4B** — the same
-software, on a board you already own — and where to report problems with it.
+![A machine's BIOS setup, in a browser, through Beacon](images/viewer.png)
+
+This is the trial build for a **Raspberry Pi 4B**.
 
 If you want something simpler and easier to use, buy our KVM hardware:
 [beacon-kvm.com/#pricing](https://www.beacon-kvm.com/#pricing).
-
-- [What you need](#what-you-need)
-- [Install](#install)
-- [What is in the package](#what-is-in-the-package)
-- [If something is wrong](#if-something-is-wrong)
-- [If the keyboard or mouse does nothing](#if-the-keyboard-or-mouse-does-nothing)
-- [Report a problem](#report-a-problem)
 
 ## What you need
 
 | | |
 |---|---|
 | **Raspberry Pi 4B** | Not a Pi 5 |
-| **A USB HDMI capture card** | 1080p, UVC. Goes in a **blue** USB 3 socket |
+| **A USB HDMI capture card** | 1080p, UVC |
 | **A USB-C data cable** | Pi to the machine you control |
 | **A network cable** | Or 5 GHz Wi-Fi |
-| **A 5.1 V 3 A supply for the GPIO header** | Not the USB-C port |
+| **A 5.1 V 3 A supply with bare wires or a barrel-to-header lead** | For the GPIO header |
 | **64-bit Raspberry Pi OS** | Bookworm |
 
 ## Install
 
-Power the Pi from the GPIO header: 5 V to pin 4, ground to pin 6. Leave the
-USB-C port free.
+### 1. Power the Pi from the GPIO header
 
-> ⚠️ **Check the polarity first.** Measure the supply: red to pin 4, black to
-> pin 6. Reversed, it destroys the board.
+5 V to pin 4, ground to pin 6. Leave the USB-C port free — Beacon needs it for
+the keyboard.
 
-Then:
+> ⚠️ Measure the supply before connecting it: red to pin 4, black to pin 6.
+> Reversed, it destroys the board.
+
+### 2. Connect the cables
+
+| Cable | On the Pi | At the other end |
+|---|---|---|
+| **HDMI** | The capture card | The machine's video output |
+| **USB-C** | The USB-C port | Any USB socket on that same machine |
+| **Ethernet** | The Ethernet socket | Your router or switch |
+
+Two things to get right:
+
+- The capture card goes in a **blue** socket. A black one is USB 2, where the
+  picture is capped near 10fps.
+- HDMI goes into the **capture card**, not into the Pi's own HDMI socket.
+
+### 3. Run the installer
 
 ```bash
 curl -LO https://github.com/BeaconBeacon/KVM/releases/latest/download/beacon-pi.tar.gz
@@ -45,85 +55,31 @@ cd beacon-pi
 sudo ./install.sh
 ```
 
-Power off, pull the plug, plug it back in:
+**Write down the serial and the link it prints.** You need them in step 5.
+
+### 4. Reboot
 
 ```bash
-sudo poweroff
+sudo reboot
 ```
 
-Connect four cables, each starting at the Pi:
+### 5. Add it to your account
 
-| Cable | On the Pi | At the other end |
-|---|---|---|
-| **HDMI** | The capture card | The machine's video output |
-| **USB-C** | The USB-C port | Any USB socket on that same machine |
-| **Ethernet** | The Ethernet socket | Your router or switch |
-| **Power** | GPIO pins 4 and 6 | A 5.1 V 3 A supply |
-
-The installer prints a serial and a link:
+Open the link the installer printed:
 
 ```
-Serial : BCN-PI-XXXXXXXXXXXX
-Bind it: https://beacon-kvm.com/b/BCN-PI-XXXXXXXXXXXX
+https://beacon-kvm.com/b/BCN-PI-XXXXXXXXXXXX
 ```
 
-Open the link, sign in, click **Add to my account**.
+Sign in, click **Add to my account**, then open it from
+[console.beacon-kvm.com](https://console.beacon-kvm.com).
 
-## What is in the package
-
-The `beacon-kvm` binary, built for arm64, and these scripts. Read them before
-running them.
-
-| | |
-|---|---|
-| `install.sh` | Installs the binary, the services and the config |
-| `setup-hid-gadget-pi.sh` | Makes the USB-C port a keyboard and mouse |
-| `hid-selftest.sh` | Types and moves the pointer, to prove HID works |
-| `beacon-kvm-pi.service` | The client |
-| `beacon-hid-pi.service` | Runs the gadget script at boot, and retries |
-
-## If something is wrong
+## If it does not work
 
 ```bash
-sudo journalctl -u beacon-kvm-pi -n 50 --no-pager
+sudo hid-selftest.sh                                    # keyboard and mouse
+sudo journalctl -u beacon-kvm-pi -n 100 --no-pager      # everything else
 ```
 
-| What you see | What to do |
-|---|---|
-| Black screen, session connected | Move the HDMI cable to the capture card. The Pi's own HDMI socket is an output |
-| Around 10fps | Move the capture card to a blue USB 3 socket |
-| `no USB device controller` | Put `dtoverlay=dwc2,dr_mode=peripheral` under `[all]` in `/boot/firmware/config.txt`, then power off and on |
-| Keyboard or mouse does nothing | Run `sudo hid-selftest.sh` |
-| LAN KVM jumping between 60 and 20fps | Use a cable, or 5 GHz Wi-Fi |
-| Random reboots | Power the Pi from the GPIO header, not from the target's USB port |
-
-## If the keyboard or mouse does nothing
-
-```bash
-sudo hid-selftest.sh
-```
-
-Open a text editor on the machine you are controlling, click into it, and
-follow the prompts. It types a line and moves the pointer.
-
-`state is 'not attached'` means the target machine has not seen the Pi: switch
-that machine on, and use a USB-C cable that carries data.
-
-## Report a problem
-
-[Open an issue](https://github.com/BeaconBeacon/KVM/issues/new/choose). Include
-the output of:
-
-```bash
-sudo journalctl -u beacon-kvm-pi -n 100 --no-pager
-```
-
-Questions that are not bugs: <support@beacon-kvm.com>
-
-## Links
-
-| | |
-|---|---|
-| Website | <https://www.beacon-kvm.com> |
-| Docs | <https://doc.beacon-kvm.com> |
-| Console | <https://console.beacon-kvm.com> |
+[Open an issue](https://github.com/BeaconBeacon/KVM/issues/new/choose) with
+that output.
