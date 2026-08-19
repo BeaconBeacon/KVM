@@ -1,0 +1,50 @@
+name: Something is not working
+description: A problem with Beacon on a Raspberry Pi
+labels: ["pi"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Before opening this: is it in the troubleshooting table in the
+        [README](https://github.com/BeaconBeacon/KVM#if-something-is-wrong)?
+
+  - type: textarea
+    id: what
+    attributes:
+      label: What happens
+      placeholder: |
+        The picture is black after Remote KVM connects. LAN KVM is fine.
+    validations:
+      required: true
+
+  - type: input
+    id: board
+    attributes:
+      label: Board and OS
+      placeholder: Pi 4B 4GB, Raspberry Pi OS Bookworm 64-bit
+    validations:
+      required: true
+
+  - type: input
+    id: card
+    attributes:
+      label: Capture card
+      placeholder: MS2109, in a blue socket
+    validations:
+      required: true
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Log
+      description: sudo journalctl -u beacon-kvm-pi -n 100 --no-pager
+      render: text
+    validations:
+      required: true
+
+  - type: textarea
+    id: hid
+    attributes:
+      label: Output of sudo hid-selftest.sh
+      description: Only if the keyboard or mouse is the problem.
+      render: text

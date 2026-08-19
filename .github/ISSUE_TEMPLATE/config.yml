@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: A question, not a bug
+    url: mailto:support@beacon-kvm.com
+    about: Email us instead.
+  - name: The hardware version
+    url: https://www.beacon-kvm.com
+    about: Beacon devices, and the waitlist.

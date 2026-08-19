@@ -1,0 +1,28 @@
+name: Another board
+description: Ask for a board other than the Pi 4B to be supported
+labels: ["board"]
+body:
+  - type: input
+    id: board
+    attributes:
+      label: Which board
+      placeholder: Orange Pi 3B, Radxa Zero 3E
+    validations:
+      required: true
+
+  - type: input
+    id: encoder
+    attributes:
+      label: Its H.264 encoder
+      description: >
+        What the SoC has, and the device node if you know it. Without a
+        hardware encoder the bandwidth makes remote access unusable.
+      placeholder: RK3566, /dev/mpp_service
+    validations:
+      required: true
+
+  - type: textarea
+    id: why
+    attributes:
+      label: Anything else
+      placeholder: I have three of these and no Pi.
