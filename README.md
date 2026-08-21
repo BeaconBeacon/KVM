@@ -4,7 +4,7 @@
 mouse of any computer, in a browser, at BIOS level. Nothing is installed on the
 machine you control.
 
-![A machine's BIOS setup, in a browser, through Beacon](images/viewer.png)
+[![Build your own IP KVM: Raspberry Pi 4B + Beacon KVM](images/video.png)](https://www.youtube.com/watch?v=jw2-pLNsa3Y)
 
 This is the trial build for a **Raspberry Pi 4B**.
 
