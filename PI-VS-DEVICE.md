@@ -1,9 +1,17 @@
-# Why buy the hardware
+# Raspberry Pi build vs Beacon Device
 
-The Pi build is real, and it is the whole software. Use it. This page is about
-what a Beacon device adds, so you can decide with the numbers in front of you.
+Two ways to have a Beacon KVM.
 
-## 1. It works when you plug it in
+**The Raspberry Pi build** is this repository: our software on a Pi 4B you
+supply and assemble yourself. It is free, and it is the whole software.
+
+**A Beacon Device** is the KVM hardware we make and sell — the same software on
+a board built for it, assembled, with the capture card fitted and the cables in
+the box.
+
+Where they differ:
+
+## It works the moment you plug it in
 
 No board to source, no capture card to choose, no socket to get right, no OS
 image, no GPIO wiring, no multimeter. It arrives assembled, with the capture
@@ -17,23 +25,21 @@ GPIO header because the USB-C port is doing keyboard duty, and you check the
 polarity before you connect it — reversed, it destroys the board. That is a fair
 trade if you enjoy this. It is not a good afternoon if you do not.
 
-## 2. The picture is better
+## The picture is better
 
-The device is built around a video encoder chosen for this job, and it shows:
+The device is built around a video processor chosen for this job, and it is
+tuned for what a KVM screen actually is: mostly still, with text that has to
+stay readable.
 
-| | Raspberry Pi 4B | Beacon device |
-|---|---|---|
-| Frame rate | up to 30 | up to 45 |
-| Bandwidth, same picture | about 3× | — |
-| A still screen | around 1 Mbps | around 300 kbps |
-| Encode time per frame | about 30 ms | about 14 ms |
+In use that means a higher frame rate, a sharper picture, a pointer that keeps
+up with your hand, and less bandwidth for the same result. A Raspberry Pi does
+all of it, just not as well, and it needs considerably more bandwidth to get
+close.
 
-On your own network you will not notice. Tethered to a phone, or on an uplink
-somebody else is sharing, that difference is the whole experience: fewer
-dropped frames, a mouse that keeps up, text that stays sharp while a window
-moves.
+On your own network you may not notice. Tethered to a phone, or sharing an
+uplink with an office, it is the difference between working and waiting.
 
-## 3. Somebody answers
+## Somebody answers
 
 A device is ours, so a fault is ours to find, and we can change its firmware.
 Support for it is part of what you paid for.
