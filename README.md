@@ -9,7 +9,8 @@ machine you control.
 This is the trial build for a **Raspberry Pi 4B**.
 
 If you want something simpler and easier to use, buy our KVM hardware:
-[beacon-kvm.com/#pricing](https://www.beacon-kvm.com/#pricing).
+[beacon-kvm.com/#pricing](https://www.beacon-kvm.com/#pricing) — and
+[here is what it adds](WHY-HARDWARE.md) over the Pi build.
 
 ## What you need
 
