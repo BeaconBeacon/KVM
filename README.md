@@ -13,6 +13,8 @@ If you want something simpler and easier to use, we also make the hardware: a
 ready to plug in. See [how the two compare](PI-VS-DEVICE.md), or
 [prices](https://www.beacon-kvm.com/#pricing).
 
+Questions, or something not working: [Discord](https://discord.gg/jjXN7H6WcH).
+
 ## What you need
 
 | | |
