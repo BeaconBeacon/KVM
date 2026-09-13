@@ -87,3 +87,10 @@ sudo journalctl -u beacon-kvm-pi -n 100 --no-pager      # everything else
 
 [Open an issue](https://github.com/BeaconBeacon/KVM/issues/new/choose) with
 that output.
+
+## Reading
+
+- [Why you need an IP KVM](articles/why-you-need-an-ip-kvm.md) — what an IP KVM
+  is, and why SSH, RDP and VNC stop working on the day you need them most
+- [A Raspberry Pi build, or a Beacon device](PI-VS-DEVICE.md) — where the two
+  differ
