@@ -122,4 +122,4 @@ to it.
 
 ---
 
-Originally published at [beacon-kvm.com](https://beacon-kvm.com/blogs/use-cases/why-you-need-an-ip-kvm) · [Build your own on a Raspberry Pi](../README.md)
+Originally published at [beacon-kvm.com](https://beacon-kvm.com/blogs/use-cases/why-you-need-an-ip-kvm) · [All articles](README.md) · [Build your own on a Raspberry Pi](../README.md)

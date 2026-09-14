@@ -94,3 +94,5 @@ that output.
   is, and why SSH, RDP and VNC stop working on the day you need them most
 - [A Raspberry Pi build, or a Beacon device](PI-VS-DEVICE.md) — where the two
   differ
+- [Everything else](articles/README.md) — comparisons, what a site visit costs,
+  reaching a BIOS, and a machine that will not boot
