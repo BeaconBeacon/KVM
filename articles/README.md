@@ -1,10 +1,11 @@
 # Articles
 
-Everything here is also published at
+Most of these are also published at
 [beacon-kvm.com/blogs/use-cases](https://beacon-kvm.com/blogs/use-cases).
 
 | | |
 |---|---|
+| [BeaconKVM or PiKVM: build your own IP KVM with a Raspberry Pi](build-an-ip-kvm-with-a-raspberry-pi.md) | Both run on a Raspberry Pi with no hardware to buy. We installed both and compared them |
 | [Why you need an IP KVM](why-you-need-an-ip-kvm.md) | Every remote tool you have — SSH, RDP, VNC, TeamViewer — runs inside the operating system |
 | [IP KVM vs remote desktop: when you need hardware](ip-kvm-vs-remote-desktop.md) | RDP, VNC, TeamViewer and AnyDesk run inside the operating system |
 | [Beacon KVM compared with PiKVM, JetKVM and TinyPilot](ip-kvm-comparison.md) | An honest comparison of four IP KVMs — price, remote access, video, ports and power control |
